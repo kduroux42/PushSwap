@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.h                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kduroux <kduroux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 13:35:45 by kduroux           #+#    #+#             */
-/*   Updated: 2024/10/02 16:17:11 by kduroux          ###   ########.fr       */
+/*   Created: 2024/05/21 14:25:43 by kduroux           #+#    #+#             */
+/*   Updated: 2024/05/23 15:16:58 by kduroux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSH_SWAP_H
-# define FT_PUSH_SWAP_H
 #include "libft.h"
 #include <stdio.h>
 
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
-
-typedef struct s_stack
+char	*ft_strrchr(const char *s, int c)
 {
-	int				nb;
-	struct s_stack	*prev;
-	struct s_stack	*next;
-	int				index;
+	int		i;
+	char	*res;
+	char	cc;
 
-}	t_node;
-
-//ft_swap
-void	swap(t_node *node);
-
-//utils
-int		is_doublon(char *str);
-int		is_valid(char *str);
-char	*argv_to_str(char **av, char **stockage);
-
-//try join
-char	*ft_strjoin2(char *s1, char *s2);
-size_t	ft_strlen2(char *str);
-#endif
+	res = NULL;
+	i = 0;
+	cc = (char) c;
+	while (s[i])
+	{
+		if (s[i] == cc)
+		{
+			res = (char *) &s[i];
+		}
+		i++;
+	}
+	if (s[i] == cc)
+		res = (char *) &s[i];
+	return (res);
+}

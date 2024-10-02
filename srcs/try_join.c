@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   try_join.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kduroux <kduroux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 13:55:09 by kduroux           #+#    #+#             */
-/*   Updated: 2024/09/30 13:55:10 by kduroux          ###   ########.fr       */
+/*   Created: 2024/10/02 16:03:29 by kduroux           #+#    #+#             */
+/*   Updated: 2024/10/02 16:05:26 by kduroux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_push_swap.h"
 
-void	swap(t_node *node)
+size_t	ft_strlen2(char *str)
 {
-	int	temp_nb;
-	int	temp_index;
+	int	i;
 
-	temp_nb = node->nb;
-	node->nb = node->next->nb;
-	node->next->nb = temp_nb;
-	temp_index = node->index;
-	node->index = node->next->index;
-	node->next->index = temp_index;
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-void	push(t_node **stack_A, t_node **stack_B)
+char	*ft_strjoin2(char *s1, char *s2)
 {
-	t_node	*temp;
+	char	*str;
+	int		i;
+	int		j;
 
-	temp = *stack_B;
-	*stack_B = (*stack_B)->next;
-	temp->next = *stack_A;
-	*stack_A = temp;
+	i = 0;
+	j = 0;
+	str = malloc(sizeof(char) * (int)((ft_strlen2(s1) + ft_strlen2(s2) + 1)));
+	if (!str)
+		return (NULL);
+	while (s1[i])
+		str[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		str[j++] = s2[i++];
+	str[j] = 0;
+	return (str);
 }
