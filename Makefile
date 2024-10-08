@@ -16,7 +16,7 @@ SOURCES_LIBFT = \
 
 PUSH_SWAP_DIR = ./srcs/
 SOURCE_PUSH_SWAP = \
-	main.c ft_swap.c try_join.c
+	main.c ft_swap.c
 	
 
 OBJ_DIR = obj

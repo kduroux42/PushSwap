@@ -12,25 +12,27 @@
 
 #include "../includes/ft_push_swap.h"
 
-void	swap(t_node *node)
-{
-	int	temp_nb;
-	int	temp_index;
+void swap(t_node *node) {
 
-	temp_nb = node->nb;
-	node->nb = node->next->nb;
-	node->next->nb = temp_nb;
-	temp_index = node->index;
-	node->index = node->next->index;
-	node->next->index = temp_index;
+  int temp_nb;
+  int temp_index;
+  if (!node)
+    return;
+  temp_nb = node->nb;
+  node->nb = node->next->nb;
+  node->next->nb = temp_nb;
+  temp_index = node->index;
+  node->index = node->next->index;
+  node->next->index = temp_index;
 }
 
-void	push(t_node **stack_A, t_node **stack_B)
-{
-	t_node	*temp;
+void push(t_node **stack_src, t_node **stack_dest) {
+  t_node *temp;
 
-	temp = *stack_B;
-	*stack_B = (*stack_B)->next;
-	temp->next = *stack_A;
-	*stack_A = temp;
+  if (!stack_src)
+    return;
+  temp = (*stack_src)->next;
+  (*stack_src)->next = *stack_dest;
+  *stack_dest = *stack_src;
+  *stack_src = temp;
 }

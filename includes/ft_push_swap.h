@@ -30,10 +30,11 @@ typedef struct s_stack
 //ft_swap
 void	swap(t_node *node);
 
-//utils
+//main
 int		is_doublon(char *str);
 int		is_valid(char *str);
 char	*argv_to_str(char **av, char **stockage);
+void	free_split(char **str);
 
 //try join
 char	*ft_strjoin2(char *s1, char *s2);
