@@ -13,6 +13,7 @@
 #ifndef FT_PUSH_SWAP_H
 # define FT_PUSH_SWAP_H
 #include "libft.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 # define INT_MAX 2147483647
@@ -29,7 +30,7 @@ typedef struct s_stack
 
 //ft_swap
 void	swap(t_node *node);
-void	push(t_node **stack_src, t_node **stack_dest);
+void	push(t_node **stack_src, t_node **stack_dest, char *str);
 t_node *create_stack(int ac, char **av, char *str);
 void	free_stack(t_node *stack);
 

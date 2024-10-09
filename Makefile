@@ -17,12 +17,17 @@ SOURCES_LIBFT = \
 PUSH_SWAP_DIR = ./srcs/
 SOURCE_PUSH_SWAP = \
 	main.c ft_swap.c utils.c ft_check.c
+
+PRINTF_DIR  = ./srcs/printf/
+SOURCES_PRINTF = \
+	ft_printf.c ft_nbrhex.c ft_strptr.c
 	
 
 OBJ_DIR = obj
 OBJECTS_LIBFT = $(SOURCES_LIBFT:%.c=$(OBJ_DIR)/%.o)
 OBJECTS_PUSH_SWAP = $(SOURCE_PUSH_SWAP:%.c=$(OBJ_DIR)/%.o)
-OBJECTS = $(OBJECTS_LIBFT) $(OBJECTS_PUSH_SWAP)
+OBJECTS_PRINTF = $(SOURCES_PRINTF:%.c=$(OBJ_DIR)/%.o)
+OBJECTS = $(OBJECTS_LIBFT) $(OBJECTS_PRINTF) $(OBJECTS_PUSH_SWAP)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -59,6 +64,10 @@ $(OBJ_DIR)/%.o: $(PUSH_SWAP_DIR)%.c
 
 $(OBJ_DIR)/%.o: $(LIBFT_DIR)%.c
 	@echo "$(BCYN)Compiling $< -> $(GRN)[OK]$(NC)"
+	@$(CC) $(CFLAGS) -I$(INCLUDES_DIR) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(PRINTF_DIR)%.c
+	@echo "$(BMAG)Compiling $< -> $(GRN)[OK]$(NC)"
 	@$(CC) $(CFLAGS) -I$(INCLUDES_DIR) -c $< -o $@
 
 clean:

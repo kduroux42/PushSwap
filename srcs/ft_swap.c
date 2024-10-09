@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_push_swap.h"
-#include <stdio.h>
 
 void swap(t_node *node)
 {
@@ -28,7 +27,7 @@ void swap(t_node *node)
 	node->next->index = temp_index;
 }
 
-void push(t_node **stack_src, t_node **stack_dest)
+void push(t_node **stack_src, t_node **stack_dest, char *str)
 {
 	t_node *temp;
 
@@ -38,6 +37,7 @@ void push(t_node **stack_src, t_node **stack_dest)
 	(*stack_src)->next = *stack_dest;
 	*stack_dest = *stack_src;
 	*stack_src = temp;
+	ft_printf("%s\n", str);
 }
 
 void free_stack(t_node *stack)

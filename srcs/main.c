@@ -71,16 +71,10 @@ int	main(int ac, char **av)
 			return (free(test), 0);
 		}
 		stack = create_stack(ac, av,test);
-		ft_printf_stack(stack);
-		//swap(stack);
-		push(&stack, &stack_b);
-		push(&stack, &stack_b);
-		push(&stack, &stack_b);
-		printf("\n");
-		ft_printf_stack(stack);
-		printf("\n");
-		ft_printf_stack(stack_b);
+		push( &stack, &stack_b, "pb");
+		free(test);
 		free_stack(stack);
+		free(stack_b);
 	}
 	return (0);
 }
