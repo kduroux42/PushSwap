@@ -11,11 +11,27 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_push_swap.h"
+#include <stdlib.h>
 
 char	*av_to_str(char *av, char **stockage)
 {
-	if (!av)
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while(av[i])
+	{
+		if (av[i] >= '0' && av[i] <= '9')
+			count++;
+		i++;
+	}
+
+	if (count == 0)
+	{
+		ft_printf("Error");
 		exit(2);
+	}
 	*stockage = ft_strjoin(*stockage, av);
 	return (*stockage);
 	
@@ -30,6 +46,7 @@ char	*argv_to_str(char **av, char **stockage)
 	{
 		if (!av[i][0])
 		{
+			ft_printf("Error");
 			free(*stockage);
 			exit(2);
 		}
@@ -67,7 +84,7 @@ int	main(int ac, char **av)
 			test = argv_to_str(av, &test);
 		if (!is_valid(test) || is_doublon(test))
 		{
-			printf("Error");
+			ft_printf("Error");
 			return (free(test), 0);
 		}
 		stack = create_stack(ac, av,test);
