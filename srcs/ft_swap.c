@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_push_swap.h"
+#include <stdio.h>
 
 void swap(t_node *node)
 {
@@ -51,31 +52,36 @@ void free_stack(t_node *stack)
     }
 }
 
-t_node *create_stack(int ac, char **av)
+t_node *create_stack(int ac, char **av, char *str)
 {
-	int 	i;
+	int		i;
+	char	**res;
 	t_node	*stack;
 	t_node	*new_node;
 	t_node	*head;
 
-	i = 1;
+	(void)av;
+	(void)ac;
+	i = 0;
+	res = ft_split(str, ' ');
 	stack = malloc(sizeof(t_node));
 	if (!stack)
 		return (NULL);
-	stack->nb = ft_atoi(av[i]);
+	stack->nb = ft_atoi(res[i]);
 	stack->next = NULL;
 	head = stack;
 	i++;
-	while (i < ac)
+	while (res[i])
 	{
 		new_node = malloc(sizeof(t_node));
 		if (!new_node)
 			return (NULL);
-		new_node->nb = ft_atoi(av[i]);
+		new_node->nb = ft_atoi(res[i]);
 		new_node->next = NULL;
 		stack->next = new_node;
 		stack = new_node;
 		i++;
 	}
+	free_split(res);
 	return (head);
 }

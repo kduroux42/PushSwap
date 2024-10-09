@@ -30,15 +30,20 @@ typedef struct s_stack
 //ft_swap
 void	swap(t_node *node);
 void	push(t_node **stack_src, t_node **stack_dest);
-t_node	*create_stack(int ac, char **av);
+t_node *create_stack(int ac, char **av, char *str);
 void	free_stack(t_node *stack);
 
 //utils
 void	ft_printf_stack(t_node *stack);
+int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 
-//main
+//ft_check
 int		is_doublon(char *str);
 int		is_valid(char *str);
+
+//main
+//int		is_doublon(char *str);
 char	*argv_to_str(char **av, char **stockage);
 void	free_split(char **str);
 
