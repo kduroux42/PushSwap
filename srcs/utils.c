@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kduroux <kduroux@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/10 14:20:38 by kduroux           #+#    #+#             */
+/*   Updated: 2024/10/10 14:20:39 by kduroux          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_push_swap.h"
 
 void	ft_printf_stack(t_node *stack)
 {
 	while (stack)
 	{
-		printf("%d\n", stack->nb);
+		ft_printf("%d\n", stack->nb);
 		stack = stack->next;
 	}
 }

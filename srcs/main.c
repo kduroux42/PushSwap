@@ -6,7 +6,7 @@
 /*   By: kduroux <kduroux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 13:30:39 by kduroux           #+#    #+#             */
-/*   Updated: 2024/10/02 16:35:01 by kduroux          ###   ########.fr       */
+/*   Updated: 2024/10/10 15:46:58 by kduroux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int ac, char **av)
 	if (ac >= 2)
 	{
 		test = NULL;
+		stack_b = NULL;
 		if (ac == 2)
 			test = av_to_str(av[1], &test);
 		else
@@ -32,15 +33,25 @@ int	main(int ac, char **av)
 			return (free(test), 0);
 		}
 		stack = create_stack(test);
-		rotate(&stack, "ra");
-		rotate(&stack, "ra");
-		rotate(&stack, "ra");
-		swap(stack, "sa");
-		ft_printf_stack(stack);
-		push(&stack, &stack_b, "pb");
-		push(&stack_b, &stack, "pa");
-		ft_printf_stack(stack);
 		free(test);
+		if (ft_is_sorted(stack))
+		{
+			free_stack(stack);
+			return (0);
+		}
+		push(&stack, &stack_b, "pb");
+		push(&stack, &stack_b, "pb");
+		push(&stack, &stack_b, "pb");
+		ss(stack, stack_b);
+		push(&stack, &stack_b, "pb");
+		r_rotate(&stack_b, "rrb");
+		push(&stack_b, &stack, "pa");
+		r_rotate(&stack_b, "rrb");
+		push(&stack_b, &stack, "pa");
+		r_rotate(&stack_b, "rrb");
+		push(&stack_b, &stack, "pa");
+		ft_is_sorted(stack);
+		free_stack(stack_b);
 		free_stack(stack);
 	}
 	return (0);

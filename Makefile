@@ -16,7 +16,7 @@ SOURCES_LIBFT = \
 
 PUSH_SWAP_DIR = ./srcs/
 SOURCE_PUSH_SWAP = \
-	main.c move.c utils.c check_args.c create_stack.c
+	main.c move.c utils.c check_args.c create_stack.c advance_move.c
 
 PRINTF_DIR  = ./srcs/printf/
 SOURCES_PRINTF = \
@@ -29,7 +29,7 @@ OBJECTS_PUSH_SWAP = $(SOURCE_PUSH_SWAP:%.c=$(OBJ_DIR)/%.o)
 OBJECTS_PRINTF = $(SOURCES_PRINTF:%.c=$(OBJ_DIR)/%.o)
 OBJECTS = $(OBJECTS_LIBFT) $(OBJECTS_PRINTF) $(OBJECTS_PUSH_SWAP)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 
 BRED = \033[1;31m
