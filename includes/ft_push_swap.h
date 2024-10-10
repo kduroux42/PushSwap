@@ -12,9 +12,9 @@
 
 #ifndef FT_PUSH_SWAP_H
 # define FT_PUSH_SWAP_H
-#include "libft.h"
-#include "ft_printf.h"
-#include <stdio.h>
+# include "libft.h"
+# include "ft_printf.h"
+# include <stdio.h>
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -29,23 +29,26 @@ typedef struct s_stack
 }	t_node;
 
 //ft_swap
-void	swap(t_node *node);
+void	swap(t_node *node, char *str);
 void	push(t_node **stack_src, t_node **stack_dest, char *str);
-t_node *create_stack(int ac, char **av, char *str);
-void	free_stack(t_node *stack);
+void	rotate(t_node **stack, char *str);
 
 //utils
 void	ft_printf_stack(t_node *stack);
 int		ft_atoi(const char *nptr);
 long	ft_atol(const char *nptr);
+void	free_split(char **str);
+void	free_stack(t_node *stack);
 
 //ft_check
 int		is_doublon(char *str);
 int		is_valid(char *str);
 
-//main
-//int		is_doublon(char *str);
+//ft_stack
 char	*argv_to_str(char **av, char **stockage);
-void	free_split(char **str);
+char	*av_to_str(char *av, char **stockage);
+t_node	*create_stack(char *str);
+
+//main
 
 #endif

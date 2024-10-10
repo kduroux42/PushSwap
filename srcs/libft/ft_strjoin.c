@@ -26,7 +26,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 		s1 = (char *)malloc(sizeof(char) * 1);
 		s1[0] = '\0';
 	}
-	str = malloc(sizeof(char*) * ((ft_strlen(s1) + ft_strlen(s2) + 1)));
+	str = malloc(sizeof(char *) * ((ft_strlen(s1) + ft_strlen(s2) + 1)));
 	if (!str)
 		return (NULL);
 	while (s1[i])

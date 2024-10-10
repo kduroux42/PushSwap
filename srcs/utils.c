@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 #include "../includes/ft_push_swap.h"
 
 void	ft_printf_stack(t_node *stack)
@@ -67,4 +59,29 @@ long	ft_atol(const char *nptr)
 		i++;
 	}
 	return (res * sign);
+}
+
+void	free_split(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
+void	free_stack(t_node *stack)
+{
+	t_node	*tmp;
+
+	while (stack)
+	{
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
+	}
 }
