@@ -55,4 +55,10 @@ char	*av_to_str(char *av, char **stockage);
 t_node	*create_stack(char *str);
 int		ft_is_sorted(t_node *stack);
 
+//utils_on_list
+int		ft_find_index(t_node *a, int nbr);
+int		ft_max(t_node *a);
+int		ft_min(t_node *a);
+void	ft_sort_three(t_node **stack);
+
 #endif

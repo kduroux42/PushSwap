@@ -16,7 +16,7 @@ SOURCES_LIBFT = \
 
 PUSH_SWAP_DIR = ./srcs/
 SOURCE_PUSH_SWAP = \
-	main.c move.c utils.c check_args.c create_stack.c advance_move.c
+	main.c move.c utils.c check_args.c create_stack.c advance_move.c utils_on_list.c
 
 PRINTF_DIR  = ./srcs/printf/
 SOURCES_PRINTF = \
