@@ -39,17 +39,8 @@ int	main(int ac, char **av)
 			free_stack(stack);
 			return (0);
 		}
-		push(&stack, &stack_b, "pb");
-		push(&stack, &stack_b, "pb");
-		push(&stack, &stack_b, "pb");
-		ss(stack, stack_b);
-		push(&stack, &stack_b, "pb");
-		r_rotate(&stack_b, "rrb");
-		push(&stack_b, &stack, "pa");
-		r_rotate(&stack_b, "rrb");
-		push(&stack_b, &stack, "pa");
-		r_rotate(&stack_b, "rrb");
-		push(&stack_b, &stack, "pa");
+		ft_sort_three(&stack);
+		ft_printf_stack(stack);
 		ft_is_sorted(stack);
 		free_stack(stack_b);
 		free_stack(stack);
