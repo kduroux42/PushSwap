@@ -24,6 +24,9 @@ typedef struct s_stack
 	struct s_stack	*prev;
 	struct s_stack	*next;
 	int				index;
+	int				weight_a;
+	int				weight_b;
+	int				tot_weight;
 
 }	t_node;
 
@@ -55,10 +58,16 @@ char	*av_to_str(char *av, char **stockage);
 t_node	*create_stack(char *str);
 int		ft_is_sorted(t_node *stack);
 
-//utils_on_list
+//sort_of_three
 int		ft_find_index(t_node *a, int nbr);
 int		ft_max(t_node *a);
 int		ft_min(t_node *a);
 void	ft_sort_three(t_node **stack);
+
+//utils_for_sort
+int	ft_lstsize_stack(t_node *stack);
+
+//sort
+void	sort(t_node	**stack);
 
 #endif

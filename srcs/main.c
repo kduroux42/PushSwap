@@ -17,32 +17,24 @@ int	main(int ac, char **av)
 {
 	char	*test;
 	t_node	*stack;
-	t_node	*stack_b;
 
+	test = NULL;
 	if (ac >= 2)
 	{
-		test = NULL;
-		stack_b = NULL;
 		if (ac == 2)
 			test = av_to_str(av[1], &test);
 		else
 			test = argv_to_str(av, &test);
 		if (!is_valid(test) || is_doublon(test))
 		{
-			ft_printf("Error");
+			ft_printf("Error\n");
 			return (free(test), 0);
 		}
 		stack = create_stack(test);
 		free(test);
-		if (ft_is_sorted(stack))
-		{
-			free_stack(stack);
-			return (0);
-		}
-		ft_sort_three(&stack);
-		ft_printf_stack(stack);
+		if (!ft_is_sorted(stack))
+			sort(&stack);
 		ft_is_sorted(stack);
-		free_stack(stack_b);
 		free_stack(stack);
 	}
 	return (0);
