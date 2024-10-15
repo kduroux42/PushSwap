@@ -94,3 +94,24 @@ int	ft_is_sorted(t_node *stack)
 	ft_printf("sorted !\n");
 	return (1);
 }
+
+int	ft_is_reverse_sorted(t_node *stack)
+{
+	t_node	*temp;
+
+	if (!stack)
+		return (0);
+	while (stack)
+	{
+		temp = stack->next;
+		while(temp)
+		{
+			if (stack->nb < temp->nb)
+				return (0);
+			temp = temp->next;
+		}
+		stack = stack->next;
+	}
+	//ft_printf("reverse sorted !\n");
+	return (1);
+}

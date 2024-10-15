@@ -25,3 +25,32 @@ int	ft_lstsize_stack(t_node *stack)
 	return (i);
 }
 
+t_node	*ft_lstlast_stack(t_node *lst)
+{
+	t_node	*temp;
+
+	temp = lst;
+	if (!lst)
+		return (NULL);
+	while (temp->next != NULL)
+		temp = temp->next;
+	return (temp);
+}
+
+void	index_stack(t_node **stack)
+{
+	t_node	*head;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 1;
+	head = *stack;
+	while (head)
+	{
+		head->index = i;
+		i++;
+		j++;
+		head = head->next;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: kduroux <kduroux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 13:30:39 by kduroux           #+#    #+#             */
-/*   Updated: 2024/10/10 15:46:58 by kduroux          ###   ########.fr       */
+/*   Updated: 2024/10/15 19:27:51 by kduroux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int	main(int ac, char **av)
 		}
 		stack = create_stack(test);
 		free(test);
-		if (!ft_is_sorted(stack))
-			sort(&stack);
-		ft_is_sorted(stack);
+		sort_b(&stack);
 		free_stack(stack);
 	}
 	return (0);
