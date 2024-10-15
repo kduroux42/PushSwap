@@ -16,7 +16,9 @@ void	ft_printf_stack(t_node *stack)
 {
 	while (stack)
 	{
-		ft_printf("%d\n", stack->nb);
+		ft_printf("nb : %d\n", stack->nb);
+		ft_printf("index : %d\n", stack->index);
+		ft_printf("weight : %d\n", stack->weight_a);
 		stack = stack->next;
 	}
 }
