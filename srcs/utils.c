@@ -19,9 +19,22 @@ void	ft_printf_stack(t_node *stack)
 		ft_printf("nb : %d\n", stack->nb);
 		ft_printf("index : %d\n", stack->index);
 		ft_printf("target : %d\n", stack->target->nb);
+		ft_printf("cost : %d\n", stack->cost);
 		ft_printf("\n");
+		/*
+		*/
 		stack = stack->next;
 	}
+}
+void	ft_printf_utils(t_node *stack)
+{
+	ft_printf("nb : %d\n", stack->nb);
+	ft_printf("index : %d\n", stack->index);
+	ft_printf("target : %d\n", stack->target->nb);
+	ft_printf("target->index : %d\n", stack->target->index);
+	ft_printf("cost : %d\n", stack->cost);
+	ft_printf("\n");
+
 }
 
 int	ft_atoi(const char *nptr)

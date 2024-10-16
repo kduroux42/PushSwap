@@ -39,6 +39,7 @@ void	rr(t_node **A, t_node **B);
 void	rrr(t_node **A, t_node **B);
 
 //utils
+void	ft_printf_utils(t_node *stack);
 void	ft_printf_stack(t_node *stack);
 int		ft_atoi(const char *nptr);
 long	ft_atol(const char *nptr);
@@ -72,7 +73,13 @@ t_node	*ft_lstlast_stack(t_node *lst);
 void    ft_setarsa(t_node *sta, t_node *stb);
 void    ft_setarsb(t_node *sta, t_node *stb);
 
+//push_to_b
+void	ft_push_to_b(t_node **a, t_node **b);
+t_node	*ft_min_cost(t_node *a);
+t_node	*ft_max_ptr(t_node *a);
+
 //sort
 void	sort_b(t_node	**stack);
+void	ft_find_cost(t_node	*stack);
 
 #endif

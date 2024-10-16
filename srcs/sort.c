@@ -12,18 +12,38 @@
 
 #include "../includes/ft_push_swap.h"
 
-void	sort_b(t_node	**stack)
+void	sort_b(t_node	**a)
 {
-	t_node	*stack_b;
+	t_node	*b;
 
-	stack_b = NULL;
-	push(stack, &stack_b, "pb");
-	push(stack, &stack_b, "pb");
-	index_stack(stack);
-	index_stack(&stack_b);
-	ft_setarsa(*stack, stack_b);
-	ft_setarsb(stack_b, *stack);
-	ft_printf_stack(stack_b);
-	ft_printf_stack(*stack);
-	free_stack(stack_b);
+	b = NULL;
+	push(a, &b, "pb");
+	push(a, &b, "pb");
+	if (!ft_is_reverse_sorted(b))
+		swap(b, "sb");
+	ft_push_to_b(a, &b);
+	//ft_printf_stack(*a);
+	//ft_printf_stack(b);
+	free_stack(b);
 }
+
+
+void	ft_find_cost(t_node	*a)
+{
+	t_node	*temp;
+	int		size;
+
+	temp = a;
+	size = ft_lstsize_stack(a);
+	while (temp)
+	{
+		if (temp->index <= size / 2)
+			temp->cost = temp->index + temp->target->index;
+		else if (temp->index == size - 1)
+			temp->cost = 1 + temp->target->index;
+		else
+			temp->cost = size - (temp->index + temp->target->index);
+		temp = temp->next;
+	}
+}
+
