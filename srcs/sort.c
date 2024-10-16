@@ -22,8 +22,10 @@ void	sort_b(t_node	**a)
 	if (!ft_is_reverse_sorted(b))
 		swap(b, "sb");
 	ft_push_to_b(a, &b);
-	//ft_printf_stack(*a);
-	//ft_printf_stack(b);
+	/*
+	ft_printf_stack(*a);
+	ft_printf_stack(b);
+	*/
 	free_stack(b);
 }
 
@@ -42,7 +44,7 @@ void	ft_find_cost(t_node	*a)
 		else if (temp->index == size - 1)
 			temp->cost = 1 + temp->target->index;
 		else
-			temp->cost = size - (temp->index + temp->target->index);
+			temp->cost = ((size - temp->index ) + temp->target->index);
 		temp = temp->next;
 	}
 }

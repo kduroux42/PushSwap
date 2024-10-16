@@ -14,26 +14,31 @@
 
 void	ft_printf_stack(t_node *stack)
 {
+	ft_printf("------------------------------------------------------\n");
 	while (stack)
 	{
 		ft_printf("nb : %d\n", stack->nb);
 		ft_printf("index : %d\n", stack->index);
 		ft_printf("target : %d\n", stack->target->nb);
+		ft_printf("target->index : %d\n", stack->target->index);
 		ft_printf("cost : %d\n", stack->cost);
 		ft_printf("\n");
+		stack = stack->next;
 		/*
 		*/
-		stack = stack->next;
 	}
+	ft_printf("------------------------------------------------------\n");
 }
 void	ft_printf_utils(t_node *stack)
 {
+	ft_printf("------------------------------------------------------\n");
 	ft_printf("nb : %d\n", stack->nb);
 	ft_printf("index : %d\n", stack->index);
 	ft_printf("target : %d\n", stack->target->nb);
 	ft_printf("target->index : %d\n", stack->target->index);
 	ft_printf("cost : %d\n", stack->cost);
 	ft_printf("\n");
+	ft_printf("------------------------------------------------------\n");
 
 }
 
