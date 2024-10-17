@@ -30,6 +30,7 @@ void	ft_push_to_b(t_node **a, t_node **b)
 		ft_setarsb(*b, *a);
 		ft_find_cost(*a);
 		min = ft_min_cost(*a);
+		ft_printf_utils(min);
 		if (min->cost > 0)
 		{
 			if(min->index <= size_of_a_2 / 2 && min->target->index <= size_of_b / 2)
@@ -129,7 +130,7 @@ void	ft_push_to_b_2(t_node **a, t_node **b)
 		else if (min->index >= size_of_a_2 / 2)
 		{
 			nr_rotate(a, "rra", size_of_a_2 / 2 - min->index);
-			if (min->target->index <= size_of_b / 2)
+			if (min->target->index >= size_of_b / 2)
 				nrotate(b, "rb", min->target->index);
 			else
 				nr_rotate(b, "rrb", size_of_b / 2 - min->target->index);
