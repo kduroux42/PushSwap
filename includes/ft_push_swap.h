@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kduroux <kduroux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:35:45 by kduroux           #+#    #+#             */
-/*   Updated: 2024/10/15 19:21:30 by kduroux          ###   ########.fr       */
+/*   Updated: 2024/10/17 13:03:08 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ void	r_rotate(t_node **stack, char *str);
 void	ss(t_node *A, t_node *B);
 void	rr(t_node **A, t_node **B);
 void	rrr(t_node **A, t_node **B);
+void	nrr(t_node **A, t_node **B, int n);
+void	nrrr(t_node **A, t_node **B, int n);
+void	nrotate(t_node **stack, char *str, int n);
+void	nr_rotate(t_node **stack, char *str, int n);
 
 //utils
 void	ft_printf_utils(t_node *stack);
