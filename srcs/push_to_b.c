@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_to_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kduroux <kduroux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:35:47 by kduroux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:42:30 by kduroux          ###   ########.fr       */
+/*   Updated: 2024/10/17 13:31:17 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_push_to_b(t_node **a, t_node **b)
 	int		size_of_a;
 	int		size_of_a_2;
 	int		size_of_b;
-	int		i;
-	int		j;
 	t_node	*min;
 
 	size_of_a = ft_lstsize_stack(*a);
@@ -32,161 +30,67 @@ void	ft_push_to_b(t_node **a, t_node **b)
 		ft_setarsb(*b, *a);
 		ft_find_cost(*a);
 		min = ft_min_cost(*a);
-		//ft_printf_utils(min);
+		ft_printf_utils(min);
 		//ft_printf_stack(*a);
-		if (min->cost == 0)
-			push(a, b, "pb");
-		else
+		if (min->cost > 0)
 		{
 			if(min->index <= size_of_a_2 / 2 && min->target->index <= size_of_b / 2)
 			{
 				if(min->index > min->target->index)
 				{
-					i = min->target->index;
-					while (i > 0)
-					{
-						rr(a, b);
-						i--;
-					}
-					j = min->index - i;
-					while(j > 0)
-					{
-						rotate(a, "ra");
-						j--;
-					}
-					push(a, b, "pb");
+					nrotate(a, "ra", min->index - min->target->index);
+					nrr(a, b, min->target->index);
 				}
 				else
 				{
-					i = min->index;
-					while (i > 0)
-					{
-						rr(a, b);
-						i--;
-					}
-					j = min->target->index - i;
-					while(j > 0)
-					{
-						rotate(b, "rb");
-						j--;
-					}
-					push(a, b, "pb");
+					nrotate(b, "rb", min->target->index - min->index);
+					nrr(a, b,  min->index);
 				}
 			}
 			else if(min->index >= size_of_a_2 / 2 && min->target->index >= size_of_b / 2)
 			{
 				if(min->index > min->target->index)
 				{
-					i = min->target->index;
-					while (i > 0)
-					{
-						rrr(a, b);
-						i--;
-					}
-					j = min->index - i;
-					while(j > 0)
-					{
-						r_rotate(a, "rra");
-						j--;
-					}
-					push(a, b, "pb");
+					nr_rotate(a, "rra", min->index - (size_of_b - min->target->index));
+					nrrr(a, b, min->target->index);
 				}
 				else
 				{
-					i = min->index;
-					while (i > 0)
-					{
-						rrr(a, b);
-						i--;
-					}
-					j = min->target->index - i;
-					while(j > 0)
-					{
-						r_rotate(b, "rrb");
-						j--;
-					}
-					push(a, b, "pb");
+					nr_rotate(b, "rrb", min->target->index - (size_of_a_2 - min->index));
+					nrrr(a, b,  size_of_a_2 - min->index);
 				}
 			}
 			else if(min->index <= size_of_a_2 / 2 && min->target->index >= size_of_b / 2)
 			{
 				if((size_of_a / 2 - min->index) < (size_of_b - min->target->index))
 				{
-					i = min->index;
-					while (i > 0)
-					{
-						rotate(a, "ra");
-						r_rotate(b, "rrb");
-						i--;
-					}
-					j = min->target->index - i;
-					while(j > 0)
-					{
-						r_rotate(b, "rrb");
-						j--;
-					}
-					push(a, b, "pb");
+					nrotate(a, "ra",  min->index);
+					nr_rotate(b, "rrb", min->target->index);
 				}
 				else
 				{
-					i = min->target->index;
-					while (i > 0)
-					{
-						rotate(b, "rb");
-						r_rotate(a, "rra");
-						i--;
-					}
-					j = min->index - i;
-					while(j > 0)
-					{
-						r_rotate(a, "rra");
-						j--;
-					}
-					push(a, b, "pb");
+					nrotate(b, "rb", min->target->index);
+					nr_rotate(a, "rra", min->index);
 				}
 			}
 			else
 			{
 				if((size_of_a - min->index) > (size_of_b / 2 - min->target->index))
 				{
-					i = min->target->index;
-					while (i > 0)
-					{
-						rotate(b, "rb ici");
-						r_rotate(a, "rra ici");
-						i--;
-					}
-					j = min->index - i;
-					while(j > 0)
-					{
-						r_rotate(a, "rra la");
-						j--;
-					}
-					push(a, b, "pb");
+					nrotate(b, "rb", min->target->index);
+					nr_rotate(a, "rra", min->index);
 				}
 				else
-			{
-					i = min->index;
-					while (i > 0)
-					{
-						rotate(a, "ra");
-						r_rotate(b, "rrb");
-						i--;
-					}
-					j = min->target->index - i;
-					while(j > 0)
-					{
-						r_rotate(b, "rrb");
-						j--;
-					}
-					push(a, b, "pb");
+				{
+					nrotate(a, "ra", min->index);
+					nr_rotate(b, "rrb", min->target->index);
 				}
 			}
-			/*
-	*/
 		}
+		push(a, b, "pb");
 		size_of_a--;
 	}
+
 	/*
 	while(!ft_is_reverse_sorted(*b))
 	{
@@ -196,6 +100,7 @@ void	ft_push_to_b(t_node **a, t_node **b)
 			rotate(b, "rb");
 	}
 	*/
+	ft_printf_stack(*a);
 	ft_printf_stack(*b);
 }
 

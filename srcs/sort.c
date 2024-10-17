@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kduroux <kduroux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:57:18 by kduroux           #+#    #+#             */
-/*   Updated: 2024/10/15 19:29:57 by kduroux          ###   ########.fr       */
+/*   Updated: 2024/10/17 13:31:33 by kimnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ void	sort_b(t_node	**a)
 	if (!ft_is_reverse_sorted(b))
 		swap(b, "sb");
 	ft_push_to_b(a, &b);
-	/*
+	ft_sort_three(a);
+
 	ft_printf_stack(*a);
 	ft_printf_stack(b);
+	/*
 	*/
 	free_stack(b);
 }
