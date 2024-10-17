@@ -91,7 +91,7 @@ int	ft_is_sorted(t_node *stack)
 		}
 		stack = stack->next;
 	}
-	ft_printf("sorted !\n");
+	//ft_printf("sorted !\n");
 	return (1);
 }
 

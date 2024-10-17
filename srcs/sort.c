@@ -21,12 +21,12 @@ void	sort_b(t_node	**a)
 	push(a, &b, "pb");
 	if (!ft_is_reverse_sorted(b))
 		swap(b, "sb");
-	ft_push_to_b(a, &b);
-	ft_sort_three(a);
-
-	ft_printf_stack(*a);
-	ft_printf_stack(b);
+	ft_push_to_b_2(a, &b);
+	ft_printf_only_stack(b);
 	/*
+	ft_sort_three(a);
+	ft_push_to_a(&b, a);
+	ft_printf_only_stack(*a);
 	*/
 	free_stack(b);
 }
@@ -50,4 +50,3 @@ void	ft_find_cost(t_node	*a)
 		temp = temp->next;
 	}
 }
-

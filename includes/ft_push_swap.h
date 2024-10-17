@@ -45,6 +45,7 @@ void	nr_rotate(t_node **stack, char *str, int n);
 //utils
 void	ft_printf_utils(t_node *stack);
 void	ft_printf_stack(t_node *stack);
+void	ft_printf_only_stack(t_node *stack);
 int		ft_atoi(const char *nptr);
 long	ft_atol(const char *nptr);
 void	free_split(char **str);
@@ -81,6 +82,8 @@ void    ft_setarsb(t_node *sta, t_node *stb);
 void	ft_push_to_b(t_node **a, t_node **b);
 t_node	*ft_min_cost(t_node *a);
 t_node	*ft_max_ptr(t_node *a);
+void	ft_push_to_a(t_node **b, t_node **a);
+void	ft_push_to_b_2(t_node **a, t_node **b);
 
 //sort
 void	sort_b(t_node	**stack);

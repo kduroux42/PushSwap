@@ -29,6 +29,19 @@ void	ft_printf_stack(t_node *stack)
 	}
 	ft_printf("------------------------------------------------------\n");
 }
+
+void	ft_printf_only_stack(t_node *stack)
+{
+	ft_printf("------------------------------------------------------\n");
+	while (stack)
+	{
+		ft_printf("nb : %d\n", stack->nb);
+		stack = stack->next;
+		/*
+		*/
+	}
+	ft_printf("------------------------------------------------------\n");
+}
 void	ft_printf_utils(t_node *stack)
 {
 	ft_printf("------------------------------------------------------\n");
