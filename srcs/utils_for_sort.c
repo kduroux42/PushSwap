@@ -41,16 +41,14 @@ void	index_stack(t_node **stack)
 {
 	t_node	*head;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 1;
 	head = *stack;
 	while (head)
 	{
 		head->index = i;
 		i++;
-		j++;
 		head = head->next;
 	}
+	
 }

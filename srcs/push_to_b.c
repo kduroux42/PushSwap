@@ -89,15 +89,6 @@ void	ft_push_to_b(t_node **a, t_node **b)
 		push(a, b, "pb");
 		size_of_a--;
 	}
-	/*
-	while(!ft_is_reverse_sorted(*b))
-	{
-		if (ft_max_ptr(*a)->index == size_of_b)
-			r_rotate(b, "rrb");
-		else
-			rotate(b, "rb");
-	}
-*/
 }
 
 void	ft_push_to_b_2(t_node **a, t_node **b)
@@ -114,39 +105,52 @@ void	ft_push_to_b_2(t_node **a, t_node **b)
 		size_of_b = ft_lstsize_stack(*b);
 		index_stack(a);
 		index_stack(b);
-		//ft_setarsa(*a, *b);
-		ft_setarsb(*a, *b);
+		ft_setarsa(*a, *b);
 		ft_find_cost(*a);
 		min = ft_min_cost(*a);
-		ft_printf_utils(min);
 		if (min->index <= size_of_a_2 / 2)
 		{
 			nrotate(a, "ra", min->index);
-			if (min->target->index <= size_of_b / 2)
-				nrotate(b, "rb", min->target->index);
-			else
-				nr_rotate(b, "rrb", size_of_b / 2 - min->target->index);
+			nnn(min, b, 1, size_of_b);
 		}
 		else if (min->index >= size_of_a_2 / 2)
 		{
-			nr_rotate(a, "rra", size_of_a_2 / 2 - min->index);
-			if (min->target->index >= size_of_b / 2)
-				nrotate(b, "rb", min->target->index);
-			else
-				nr_rotate(b, "rrb", size_of_b / 2 - min->target->index);
+			nr_rotate(a, "rra", size_of_a_2 - min->index);
+			nnn(min, b, 1, size_of_b);
 		}
 		push(a, b, "pb");
 		size_of_a--;
 	}
-	/*
-	while(!ft_is_sorted(*b))
+	size_of_b = ft_lstsize_stack(*b);
+	index_stack(b);
+	//ft_printf_utils(ft_max_ptr(*b));
+	while(!ft_is_reverse_sorted(*b))
 	{
-		if (ft_max_ptr(*a)->index == size_of_b)
+		if (ft_max_ptr(*b)->index == size_of_b-1)
 			r_rotate(b, "rrb");
 		else
 			rotate(b, "rb");
 	}
+	/*
 	*/
+}
+
+void	nnn(t_node	*min, t_node **a, int n, int size)
+{
+	if (n == 1)
+	{
+		if (min->target->index <= size / 2)
+			nrotate(a, "rb", min->target->index);
+		else
+			nr_rotate(a, "rrb", size  - min->target->index);
+	}
+	else
+	{
+		if (min->target->index <= size / 2)
+			nrotate(a, "ra", min->target->index);
+		else
+			nr_rotate(a, "rra", size  - min->target->index);
+	}
 }
 
 t_node	*ft_min_cost(t_node *a)
@@ -186,7 +190,6 @@ void	ft_push_to_a(t_node **b, t_node **a)
 	int		size_of_a;
 	int		size_of_b_2;
 	int		size_of_b;
-	int		count_for_r;
 	t_node	*min;
 
 	size_of_b = ft_lstsize_stack(*b);
@@ -194,40 +197,32 @@ void	ft_push_to_a(t_node **b, t_node **a)
 	{
 		size_of_b_2 = ft_lstsize_stack(*b);
 		size_of_a = ft_lstsize_stack(*a);
-		count_for_r = 0;
 		index_stack(a);
 		index_stack(b);
-		ft_setarsa(*a, *b);
 		ft_setarsb(*b, *a);
 		ft_find_cost(*b);
 		min = ft_min_cost(*b);
 		if (min->index <= size_of_b_2 / 2)
 		{
-			nrotate(b, "rb", min->index - count_for_r);
-			if (min->target->index <= size_of_a / 2)
-				nrotate(a, "ra", min->target->index);
-			else
-				nr_rotate(a, "rra", size_of_a - min->target->index);
+			nrotate(b, "rb", min->index);
+			nnn(min, a, 0, size_of_a);
 		}
 		else if (min->index >= size_of_b_2 / 2)
 		{
-			nr_rotate(b, "rrb", size_of_b_2 / 2 - min->index);
-			if (min->target->index <= size_of_a / 2)
-				nrotate(a, "ra", min->target->index);
-			else
-				nr_rotate(a, "rra", size_of_a / 2 - min->target->index);
+			nr_rotate(b, "rrb", size_of_b_2  - min->index);
+			nnn(min, a, 0, size_of_a);
 		}
 		push(b, a, "pa");
 		size_of_b--;
 	}
 
-	/*
+	size_of_a = ft_lstsize_stack(*a);
+	index_stack(a);
 	while(!ft_is_sorted(*a))
 	{
-		if (ft_max_ptr(*a)->index == size_of_a)
+		if (ft_max_ptr(*a)->index == size_of_a-1)
 			r_rotate(a, "rra");
 		else
 			rotate(a, "ra");
 	}
-*/
 }

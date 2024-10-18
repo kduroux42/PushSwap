@@ -22,10 +22,10 @@ void	sort_b(t_node	**a)
 	if (!ft_is_reverse_sorted(b))
 		swap(b, "sb");
 	ft_push_to_b_2(a, &b);
-	ft_printf_only_stack(b);
-	/*
 	ft_sort_three(a);
 	ft_push_to_a(&b, a);
+	/*
+	ft_printf_only_stack(b);
 	ft_printf_only_stack(*a);
 	*/
 	free_stack(b);
