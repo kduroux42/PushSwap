@@ -12,10 +12,11 @@ SOURCES_LIBFT = \
 	ft_substr.c ft_strjoin.c ft_itoa.c ft_split.c ft_strtrim.c ft_strmapi.c ft_striteri.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 
-PUSH_SWAP_DIR = ./srcs/
+PUSH_SWAP_DIR = ./srcs/pushswap/
 SOURCE_PUSH_SWAP = \
-	main.c move.c utils.c check_args.c create_stack.c advance_move.c sort_of_three.c sort.c \
-	utils_for_sort.c target.c push_to_b.c
+	main.c move.c utils.c check_args.c create_stack.c advance_move.c advance_move_2.c \
+	sort_of_three.c sort.c \
+	utils_for_sort.c target.c push.c ft_printf_all.c
 
 PRINTF_DIR  = ./srcs/printf/
 SOURCES_PRINTF = \

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_push_swap.h"
+#include "../../includes/ft_push_swap.h"
 
 int	ft_lstsize_stack(t_node *stack)
 {
@@ -50,5 +50,4 @@ void	index_stack(t_node **stack)
 		i++;
 		head = head->next;
 	}
-	
 }

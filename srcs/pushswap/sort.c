@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_push_swap.h"
+#include "../../includes/ft_push_swap.h"
 
-void	sort_b(t_node	**a)
+void	sort_b(t_node **a)
 {
 	t_node	*b;
 
@@ -21,16 +21,11 @@ void	sort_b(t_node	**a)
 	push(a, &b, "pb");
 	if (!ft_is_reverse_sorted(b))
 		swap(b, "sb");
-	ft_push_to_b_2(a, &b);
+	ft_push_to_b(a, &b);
 	ft_sort_three(a);
 	ft_push_to_a(&b, a);
-	/*
-	ft_printf_only_stack(b);
-	ft_printf_only_stack(*a);
-	*/
 	free_stack(b);
 }
-
 
 void	ft_find_cost(t_node	*a)
 {
@@ -46,7 +41,7 @@ void	ft_find_cost(t_node	*a)
 		else if (temp->index == size - 1)
 			temp->cost = 1 + temp->target->index;
 		else
-			temp->cost = ((size - temp->index ) + temp->target->index);
+			temp->cost = ((size - temp->index) + temp->target->index);
 		temp = temp->next;
 	}
 }

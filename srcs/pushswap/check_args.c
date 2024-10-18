@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_push_swap.h"
+#include "../../includes/ft_push_swap.h"
 
 int	is_valid(char *str)
 {
@@ -83,7 +83,7 @@ int	ft_is_sorted(t_node *stack)
 	while (stack)
 	{
 		temp = stack->next;
-		while(temp)
+		while (temp)
 		{
 			if (stack->nb > temp->nb)
 				return (0);
@@ -91,7 +91,6 @@ int	ft_is_sorted(t_node *stack)
 		}
 		stack = stack->next;
 	}
-	//ft_printf("sorted !\n");
 	return (1);
 }
 
@@ -104,7 +103,7 @@ int	ft_is_reverse_sorted(t_node *stack)
 	while (stack)
 	{
 		temp = stack->next;
-		while(temp)
+		while (temp)
 		{
 			if (stack->nb < temp->nb)
 				return (0);
@@ -112,6 +111,5 @@ int	ft_is_reverse_sorted(t_node *stack)
 		}
 		stack = stack->next;
 	}
-	//ft_printf("reverse sorted !\n");
 	return (1);
 }

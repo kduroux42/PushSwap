@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:35:45 by kduroux           #+#    #+#             */
-/*   Updated: 2024/10/17 13:03:08 by kimnguye         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:09:34 by kduroux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,24 @@ void	r_rotate(t_node **stack, char *str);
 void	ss(t_node *A, t_node *B);
 void	rr(t_node **A, t_node **B);
 void	rrr(t_node **A, t_node **B);
+
+//advance_move_2
 void	nrr(t_node **A, t_node **B, int n);
 void	nrrr(t_node **A, t_node **B, int n);
 void	nrotate(t_node **stack, char *str, int n);
 void	nr_rotate(t_node **stack, char *str, int n);
 
 //utils
+int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
+int		check_long(const char *str, long res, long sign, int i);
+void	free_split(char **str);
+void	free_stack(t_node *stack);
+
+//ft_printf_all
 void	ft_printf_utils(t_node *stack);
 void	ft_printf_stack(t_node *stack);
 void	ft_printf_only_stack(t_node *stack);
-int		ft_atoi(const char *nptr);
-long	ft_atol(const char *nptr);
-void	free_split(char **str);
-void	free_stack(t_node *stack);
 
 //check_args
 int		is_doublon(char *str);
@@ -79,11 +84,11 @@ void    ft_setarsa(t_node *sta, t_node *stb);
 void    ft_setarsb(t_node *sta, t_node *stb);
 
 //push_to_b
-void	ft_push_to_b(t_node **a, t_node **b);
 t_node	*ft_min_cost(t_node *a);
 t_node	*ft_max_ptr(t_node *a);
 void	ft_push_to_a(t_node **b, t_node **a);
-void	ft_push_to_b_2(t_node **a, t_node **b);
+void	ft_push_to_b(t_node **a, t_node **b);
+void	nnn(t_node	*min, t_node **a, int n, int size);
 
 //sort
 void	sort_b(t_node	**stack);
