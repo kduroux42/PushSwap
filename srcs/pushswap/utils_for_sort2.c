@@ -50,7 +50,6 @@ int	test(t_node *min, t_node **a, t_node **b)
 			return (min->target->index);
 		}
 	}
-	/*
 	else if (min->target->index >= sti / 2 && min->index >= si / 2)
 	{
 		if (min->index <= min->target->index)
@@ -64,6 +63,7 @@ int	test(t_node *min, t_node **a, t_node **b)
 			return (sti - min->target->index);
 		}
 	}
+	/*
 	*/
 	return (0);
 }

@@ -92,7 +92,7 @@ t_node	*ft_min_cost(t_node *a);
 t_node	*ft_max_ptr(t_node *a);
 void	ft_push_to_a(t_node **b, t_node **a);
 void	ft_push_to_b(t_node **a, t_node **b);
-void	nnn(t_node *min, t_node **a, int n, int size, int count);
+void	nnn(t_node *min, t_node **a, int n, int size);
 
 //sort
 void	sort_b(t_node	**stack);
