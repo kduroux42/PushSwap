@@ -6,7 +6,7 @@
 /*   By: kimnguye <kimnguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:35:45 by kduroux           #+#    #+#             */
-/*   Updated: 2024/10/18 17:09:34 by kduroux          ###   ########.fr       */
+/*   Updated: 2024/10/21 11:27:32 by kduroux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,20 @@ int		ft_lstsize_stack(t_node *stack);
 void	index_stack(t_node **stack);
 t_node	*ft_lstlast_stack(t_node *lst);
 
+//utils_for_sort2
+void	reverse_stack(t_node **stack, int i);
+int	test(t_node *min, t_node **a, t_node **b);
+
 //target
 void    ft_setarsa(t_node *sta, t_node *stb);
 void    ft_setarsb(t_node *sta, t_node *stb);
 
-//push_to_b
+//push
 t_node	*ft_min_cost(t_node *a);
 t_node	*ft_max_ptr(t_node *a);
 void	ft_push_to_a(t_node **b, t_node **a);
 void	ft_push_to_b(t_node **a, t_node **b);
-void	nnn(t_node	*min, t_node **a, int n, int size);
+void	nnn(t_node *min, t_node **a, int n, int size, int count);
 
 //sort
 void	sort_b(t_node	**stack);

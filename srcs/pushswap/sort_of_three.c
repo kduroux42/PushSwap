@@ -6,11 +6,11 @@
 /*   By: kduroux <kduroux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 10:37:19 by kduroux           #+#    #+#             */
-/*   Updated: 2024/10/14 10:37:20 by kduroux          ###   ########.fr       */
+/*   Updated: 2024/10/21 10:56:43 by kduroux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_push_swap.h"
+#include "../../includes/ft_push_swap.h"
 
 int	ft_max(t_node *a)
 {
