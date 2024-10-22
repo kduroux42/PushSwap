@@ -27,7 +27,7 @@ void	ft_push_to_b(t_node **a, t_node **b)
 		ft_setarsa(*a, *b);
 		ft_find_cost(*a, size_of_b);
 		min = ft_min_cost(*a);
-		//min->count = 0;
+		min->count = 0;
 		min->count = test(min, a, b);
 		if (min->index <= size_of_a / 2)
 		{
@@ -61,22 +61,22 @@ void	ft_push_to_a(t_node **b, t_node **a)
 		ft_setarsb(*b, *a);
 		ft_find_cost(*b, size_of_a);
 		min = ft_min_cost(*b);
-		//min->count = test(min, a, b);
-		//count = test(min, b, a);
+		min->count = 0;
+	//	min->count = test(min, a, b);
 		if (min->index <= size_of_b / 2)
 		{
-			nrotate(b, "rb", min->index);
+			nrotate(b, "rb", min->index - min->count);
 			nnn(min, a, 0, size_of_a);
 		}
 		else if (min->index >= size_of_b / 2)
 		{
-			nr_rotate(b, "rrb", size_of_b - min->index);
+			nr_rotate(b, "rrb", size_of_b - min->index - min->count);
 			nnn(min, a, 0, size_of_a);
 		}
 		push(b, a, "pa");
 		size_of_b--;
 	}
-	//reverse_stack(a, 0);
+	reverse_stack(a, 0);
 }
 
 void	nnn(t_node *min, t_node **a, int n, int size)
@@ -91,9 +91,9 @@ void	nnn(t_node *min, t_node **a, int n, int size)
 	else
 	{
 		if (min->target->index <= size / 2)
-			nrotate(a, "ra", min->target->index);
+			nrotate(a, "ra", min->target->index - min->count);
 		else
-			nr_rotate(a, "rra", (size - min->target->index));
+			nr_rotate(a, "rra", (size - min->target->index) - min->count);
 	}
 }
 
