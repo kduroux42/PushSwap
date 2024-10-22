@@ -27,21 +27,33 @@ void	sort_b(t_node **a)
 	free_stack(b);
 }
 
-void	ft_find_cost(t_node	*a)
+void	ft_find_cost(t_node *a, int size_target)
 {
 	t_node	*temp;
-	int		size;
+	int		size_index;
 
 	temp = a;
-	size = ft_lstsize_stack(a);
+	size_index = ft_lstsize_stack(a);
 	while (temp)
 	{
-		if (temp->index <= size / 2)
-			temp->cost = temp->index + temp->target->index;
-		else if (temp->index == size - 1)
-			temp->cost = 1 + temp->target->index;
+		if (temp->index <= size_index / 2 && temp->target->index <= size_target / 2)
+		{
+			if (temp->index < temp->target->index)
+				temp->cost = temp->target->index;
+			else
+				temp->cost = temp->index;
+		}
+		else if (temp->index >= size_index / 2 && temp->target->index >= size_target / 2)
+		{
+			if (temp->index < temp->target->index)
+				temp->cost = size_target - temp->target->index;
+			else
+				temp->cost = size_index - temp->index;
+		}
+		else if (temp->index == size_index)
+			temp->cost = temp->target->index;
 		else
-			temp->cost = ((size - temp->index) + temp->target->index);
+			temp->cost = temp->index + temp->target->index;
 		temp = temp->next;
 	}
 }

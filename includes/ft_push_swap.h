@@ -23,6 +23,7 @@ typedef struct s_stack
 	int				nb;
 	int				index;
 	int				cost;
+	int				count;
 	struct s_stack	*target;
 	struct s_stack	*next;
 }	t_node;
@@ -96,6 +97,6 @@ void	nnn(t_node *min, t_node **a, int n, int size);
 
 //sort
 void	sort_b(t_node	**stack);
-void	ft_find_cost(t_node	*stack);
+void	ft_find_cost(t_node *a, int size_target);
 
 #endif
