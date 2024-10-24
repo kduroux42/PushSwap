@@ -26,11 +26,11 @@ int	is_valid(char *str)
 		j = 0;
 		while (res[i][j])
 		{
-			if (!((res[i][j] >= '0' && res[i][j] <= '9') || (res[i][j] == '-' && (res[i][j + 1] >= '0' && res[i][j + 1] <= '9') && !(res[i][j - 1] >= '0' && res[i][j - 1] <= '9'))))
-			{
-				free_split(res);
-				return (0);
-			}
+			if (!((res[i][j] >= '0' && res[i][j] <= '9')
+				|| (res[i][j] == '-' && (res[i][j + 1] >= '0'
+				&& res[i][j + 1] <= '9')
+				&& !(res[i][j - 1] >= '0' && res[i][j - 1] <= '9'))))
+				return (free_split(res), 0);
 			j++;
 		}
 		i++;

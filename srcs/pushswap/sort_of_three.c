@@ -57,7 +57,6 @@ void	ft_sort_three(t_node **stack)
 {
 	if (!ft_is_sorted(*stack))
 	{
-
 		if (ft_min(*stack) == (*stack)->nb)
 		{
 			r_rotate(stack, "rra");
@@ -94,23 +93,7 @@ void	ft_sort_four_five(t_node **a)
 			swap(b, "sb");
 		push(&b, a, "pa");
 		push(&b, a, "pa");
-		while(!ft_is_sorted(*a))
+		while (!ft_is_sorted(*a))
 			rotate(a, "ra");
-	}
-	else
-	{
-		push(a, &b, "pb");
-		push(a, &b, "pb");
-		if (!ft_is_sorted(*a))
-			ft_sort_three(a);
-		if (!ft_is_reverse_sorted(b))
-			swap(*a, "sa");
-		push(&b, a, "pa");
-		push(&b, a, "pa");
-		/*
-		while(!ft_is_sorted(*a))
-			rotate(a, "ra");
-		*/
-
 	}
 }
