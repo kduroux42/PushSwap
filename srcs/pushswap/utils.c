@@ -73,8 +73,8 @@ int	check_long(const char *str, long res, long sign, int i)
 		if (res > 2147483647 || (res * sign) < -2147483648
 			|| ft_strlen(str) > 11)
 		{
-			ft_printf("Error\n");
-			return (0);
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
 		}
 	}
 	return (1);

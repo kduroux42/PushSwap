@@ -16,7 +16,6 @@ void	ft_push_to_b(t_node **a, t_node **b)
 {
 	int		size_of_a;
 	int		size_of_b;
-	//int		count;
 	t_node	*min;
 
 	size_of_a = ft_lstsize_stack(*a);
@@ -28,7 +27,6 @@ void	ft_push_to_b(t_node **a, t_node **b)
 		ft_setarsa(*a, *b);
 		ft_find_cost(*a);
 		min = ft_min_cost(*a);
-		//count = test(min, a, b);
 		if (min->index <= size_of_a / 2)
 		{
 			nrotate(a, "ra", min->index);
@@ -49,7 +47,6 @@ void	ft_push_to_a(t_node **b, t_node **a)
 {
 	int		size_of_a;
 	int		size_of_b;
-	//int		count;
 	t_node	*min;
 
 	size_of_b = ft_lstsize_stack(*b);
@@ -61,7 +58,6 @@ void	ft_push_to_a(t_node **b, t_node **a)
 		ft_setarsb(*b, *a);
 		ft_find_cost(*b);
 		min = ft_min_cost(*b);
-		//count = test(min, b, a);
 		if (min->index <= size_of_b / 2)
 		{
 			nrotate(b, "rb", min->index);

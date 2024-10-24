@@ -27,8 +27,8 @@ char	*av_to_str(char *av, char **stockage)
 	}
 	if (count == 0)
 	{
-		ft_printf("Error");
-		exit(2);
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
 	}
 	*stockage = ft_strjoin(*stockage, av);
 	return (*stockage);
@@ -43,9 +43,9 @@ char	*argv_to_str(char **av, char **stockage)
 	{
 		if (!av[i][0])
 		{
-			ft_printf("Error");
+			ft_putstr_fd("Error\n", 2);
 			free(*stockage);
-			exit(2);
+			exit(1);
 		}
 		*stockage = ft_strjoin(*stockage, av[i]);
 		*stockage = ft_strjoin(*stockage, " ");

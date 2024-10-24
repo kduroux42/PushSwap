@@ -73,6 +73,7 @@ int		ft_find_index(t_node *a, int nbr);
 int		ft_max(t_node *a);
 int		ft_min(t_node *a);
 void	ft_sort_three(t_node **stack);
+void	ft_sort_four_five(t_node **a);
 
 //utils_for_sort
 int		ft_lstsize_stack(t_node *stack);
@@ -97,5 +98,6 @@ void	nnn(t_node *min, t_node **a, int n, int size);
 //sort
 void	sort_b(t_node	**stack);
 void	ft_find_cost(t_node	*stack);
+void	sort(t_node **a);
 
 #endif

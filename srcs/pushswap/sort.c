@@ -27,6 +27,22 @@ void	sort_b(t_node **a)
 	free_stack(b);
 }
 
+void	sort(t_node **a)
+{
+	if (!ft_is_sorted(*a))
+	{
+		if (ft_lstsize_stack(*a) == 2)
+		{
+			if (!ft_is_sorted(*a))
+				swap(*a, "sa");
+		}
+		else if (ft_lstsize_stack(*a) == 3)
+			ft_sort_three(a);
+		else
+			sort_b(a);
+	}
+}
+
 void	ft_find_cost(t_node	*a)
 {
 	t_node	*temp;
