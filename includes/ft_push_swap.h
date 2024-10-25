@@ -82,7 +82,7 @@ t_node	*ft_lstlast_stack(t_node *lst);
 
 //utils_for_sort2
 void	reverse_stack(t_node **stack, int i);
-int	test(t_node *min, t_node **a, t_node **b);
+int		test(t_node *min, t_node **a, t_node **b);
 
 //target
 void    ft_setarsa(t_node *sta, t_node *stb);
@@ -98,5 +98,6 @@ void	nnn(t_node *min, t_node **a, int n, int size);
 //sort
 void	sort_b(t_node	**stack);
 void	ft_find_cost(t_node *a, int size_target);
+void	sort(t_node **a);
 
 #endif

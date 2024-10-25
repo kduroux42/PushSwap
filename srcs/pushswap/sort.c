@@ -27,6 +27,22 @@ void	sort_b(t_node **a)
 	free_stack(b);
 }
 
+void	sort(t_node **a)
+{
+	if (!ft_is_sorted(*a))
+	{
+		if (ft_lstsize_stack(*a) == 2)
+		{
+			if (!ft_is_sorted(*a))
+				swap(*a, "sa");
+		}
+		else if (ft_lstsize_stack(*a) == 3)
+			ft_sort_three(a);
+		else
+			sort_b(a);
+	}
+}
+
 void	ft_find_cost(t_node *a, int size_target)
 {
 	t_node	*temp;
@@ -46,9 +62,9 @@ void	ft_find_cost(t_node *a, int size_target)
 		else if (temp->index >= size_index / 2 && temp->target->index >= size_target / 2)
 		{
 			if (temp->index < temp->target->index)
-				temp->cost = size_target - temp->target->index;
+				temp->cost = size_target - temp->target->index + (size_index - temp->index - size_target - temp->target->index);
 			else
-				temp->cost = size_index - temp->index;
+				temp->cost = size_index - temp->index + (size_target - temp->target->index - size_index - temp->index);
 		}
 		else if (temp->index == size_index)
 			temp->cost = temp->target->index;
@@ -57,3 +73,25 @@ void	ft_find_cost(t_node *a, int size_target)
 		temp = temp->next;
 	}
 }
+/*
+void	ft_find_cost(t_node	*a, int size_target)
+{
+	t_node	*temp;
+	int		size;
+	int		size_temp;
+
+	temp = a;
+	size_temp = size_target;
+	size = ft_lstsize_stack(a);
+	while (temp)
+	{
+		if (temp->index <= size / 2)
+			temp->cost = temp->index + temp->target->index;
+		else if (temp->index == size - 1)
+			temp->cost = 1 + temp->target->index;
+		else
+			temp->cost = ((size - temp->index) + temp->target->index);
+		temp = temp->next;
+	}
+}
+*/

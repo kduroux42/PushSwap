@@ -27,12 +27,13 @@ int	main(int ac, char **av)
 			test = argv_to_str(av, &test);
 		if (!is_valid(test) || is_doublon(test))
 		{
-			ft_printf("Error\n");
-			return (free(test), 0);
+			ft_putstr_fd("Error\n", 2);
+			free(test);
+			exit(1);
 		}
 		stack = create_stack(test);
 		free(test);
-		sort_b(&stack);
+		sort(&stack);
 		free_stack(stack);
 	}
 	return (0);

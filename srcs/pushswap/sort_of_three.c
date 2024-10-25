@@ -55,22 +55,25 @@ int	ft_find_index(t_node *a, int nbr)
 
 void	ft_sort_three(t_node **stack)
 {
-	if (ft_min(*stack) == (*stack)->nb)
+	if(!ft_is_sorted(*stack))
 	{
-		r_rotate(stack, "rra");
-		swap(*stack, "sa");
-	}
-	else if (ft_max(*stack) == (*stack)->nb)
-	{
-		rotate(stack, "ra");
-		if (!ft_is_sorted(*stack))
-			swap(*stack, "sa");
-	}
-	else
-	{
-		if (ft_find_index(*stack, ft_max(*stack)) == 1)
+		if (ft_min(*stack) == (*stack)->nb)
+		{
 			r_rotate(stack, "rra");
-		else
 			swap(*stack, "sa");
+		}
+		else if (ft_max(*stack) == (*stack)->nb)
+		{
+			rotate(stack, "ra");
+			if (!ft_is_sorted(*stack))
+				swap(*stack, "sa");
+		}
+		else
+		{
+			if (ft_find_index(*stack, ft_max(*stack)) == 1)
+				r_rotate(stack, "rra");
+			else
+				swap(*stack, "sa");
+		}
 	}
 }

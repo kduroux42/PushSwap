@@ -51,20 +51,21 @@ int	test(t_node *min, t_node **a, t_node **b)
 		}
 	}
 	//else
+	/*
 	else if (min->target->index >= sti / 2 && min->index >= si / 2)
 	{
-		if (min->index <= min->target->index)
+		if (si - min->index <= sti - min->target->index)
 		{
 			nrrr(a, b, si - min->index);
 			return (si - min->index);
 		}
 		else
 		{
+			ft_printf("cc\n");
 			nrrr(a, b, sti - min->target->index);
 			return (sti - min->target->index);
 		}
 	}
-	/*
 	*/
 	return (0);
 }
