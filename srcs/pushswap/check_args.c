@@ -18,8 +18,8 @@ int	is_valid(char *str)
 	int		j;
 	char	**res;
 
-	res = ft_split(str, ' ');
 	i = 0;
+	res = ft_split(str, ' ');
 	while (res[i])
 	{
 		j = 0;
@@ -28,14 +28,17 @@ int	is_valid(char *str)
 			if (!((res[i][j] >= '0' && res[i][j] <= '9')
 				|| (res[i][j] == '-' && (res[i][j + 1] >= '0'
 				&& res[i][j + 1] <= '9')
-				&& !(res[i][j - 1] >= '0' && res[i][j - 1] <= '9'))))
+				&& (j == 0 || !(res[i][j - 1] >= '0' && res[i][j - 1] <= '9')))
+				|| (res[i][j] == '+' && (res[i][j + 1] >= '0'
+				&& res[i][j + 1] <= '9')
+				&& (j == 0 || !(res[i][j - 1] >= '0'
+				&& res[i][j - 1] <= '9')))))
 				return (free_split(res), 0);
 			j++;
 		}
 		i++;
 	}
-	free_split(res);
-	return (1);
+	return (free_split(res), 1);
 }
 
 int	int_min_max(int nbi, long nbl)
@@ -67,8 +70,7 @@ int	is_doublon(char *str)
 		}
 		i++;
 	}
-	free_split(res);
-	return (0);
+	return (free_split(res), 0);
 }
 
 int	ft_is_sorted(t_node *stack)
