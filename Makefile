@@ -16,7 +16,8 @@ PUSH_SWAP_DIR = ./srcs/pushswap/
 SOURCE_PUSH_SWAP = \
 	main.c move.c utils.c check_args.c create_stack.c advance_move.c advance_move_2.c \
 	sort_of_three.c sort.c \
-	utils_for_sort.c target.c push.c ft_printf_all.c utils_for_sort2.c
+	utils_for_sort.c target.c push.c ft_printf_all.c utils_for_sort2.c \
+	init.c
 
 PRINTF_DIR  = ./srcs/printf/
 SOURCES_PRINTF = \

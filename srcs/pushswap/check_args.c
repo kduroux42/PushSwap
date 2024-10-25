@@ -22,7 +22,6 @@ int	is_valid(char *str)
 	i = 0;
 	while (res[i])
 	{
-		ft_printf("%s\n", res[i]);
 		j = 0;
 		while (res[i][j])
 		{

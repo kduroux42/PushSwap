@@ -95,6 +95,10 @@ void	ft_push_to_a(t_node **b, t_node **a);
 void	ft_push_to_b(t_node **a, t_node **b);
 void	nnn(t_node *min, t_node **a, int n, int size);
 
+//init
+void	init_b(t_node **a, t_node **b);
+void	init_a(t_node **a, t_node **b);
+
 //sort
 void	sort_b(t_node	**stack);
 void	ft_find_cost(t_node	*stack);

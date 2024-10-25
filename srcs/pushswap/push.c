@@ -22,10 +22,7 @@ void	ft_push_to_b(t_node **a, t_node **b)
 	while (size_of_a > 3)
 	{
 		size_of_b = ft_lstsize_stack(*b);
-		index_stack(a);
-		index_stack(b);
-		ft_setarsa(*a, *b);
-		ft_find_cost(*a);
+		init_b(a, b);
 		min = ft_min_cost(*a);
 		if (min->index <= size_of_a / 2)
 		{
@@ -53,10 +50,7 @@ void	ft_push_to_a(t_node **b, t_node **a)
 	while (size_of_b > 0)
 	{
 		size_of_a = ft_lstsize_stack(*a);
-		index_stack(a);
-		index_stack(b);
-		ft_setarsb(*b, *a);
-		ft_find_cost(*b);
+		init_a(a, b);
 		min = ft_min_cost(*b);
 		if (min->index <= size_of_b / 2)
 		{
